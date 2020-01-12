@@ -1,0 +1,37 @@
+.well {
+    margin-bottom: 8px;
+    border: 1px solid #ddd;
+    padding: 20px;
+    color: gray;
+}
+#create{
+    float: left;
+}
+.profile{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;  
+}
+#profile {
+width: 200px;
+height: 200px;
+border-radius: 50%;
+}
+img.user_avatar {
+    width: 30px;
+    height: 30px;
+    margin-right: 4px;
+    border-radius: 50%;
+}
+.line-through{
+    text-decoration: line-through;
+}
+.assighment {
+    display: flex;
+    justify-content: space-between;
+}
+#profile_comments{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; 
+}
