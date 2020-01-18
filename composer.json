@@ -15,6 +15,7 @@
         "laravel/tinker": "^1.0",
         "laravelcollective/html": "^5.8.34",
         "laravelista/comments": "^3.1",
+        "pusher/pusher-php-server": "^4.1",
         "unisharp/laravel-ckeditor": "^4.7"
     },
     "require-dev": {
