@@ -76,4 +76,9 @@ class PostCreated extends Notification
             'Post title' => $post_title,
         ]);
     }
+
+    public function BroadcastAs()
+    {
+        return 'Post Created';
+    }
 }

@@ -2,8 +2,6 @@
 
 namespace App\Http\Controllers;
 
-
-use App\Notifications\PostCreated;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Http\Request;
 use App\Post;
@@ -81,7 +79,7 @@ class PostController extends Controller
 
         $arr = ['title' => $post->title];
 
-        auth()->user()->notify(new PostCreated($arr));
+        auth()->user()->notifyusers($arr);
 
         return redirect('/posts')->withSuccess('Post Created');
     }
