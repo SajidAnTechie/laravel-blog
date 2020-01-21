@@ -12,17 +12,18 @@ class PostCreated extends Notification
 {
     use Queueable;
 
-    public $user_name;
+    public $user, $post;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct(array  $user_name)
+    public function __construct($user, $post)
     {
         //
-        $this->user_name = $user_name;
+        $this->user = $user;
+        $this->post = $post;
     }
 
     /**
@@ -61,19 +62,19 @@ class PostCreated extends Notification
     public function toDatabase($notifiable)
     {
 
-        $post_title  = $this->user_name;
+        // $post_title  = $this->user_name;
         return [
-            'data' => $notifiable->name . " " . 'added a post',
-            'title' => $post_title,
+            'data' => $this->user->name . " " . 'commented on your post',
+            'post_id' => $this->post->id,
         ];
     }
 
     public function toBroadcast($notifiable)
     {
-        $post_title  = $this->user_name;
+        // $post_title  = $this->user_name;
         return new BroadcastMessage([
-            'data' => $notifiable->name . " " . 'added a post',
-            'Post title' => $post_title,
+            'data' => $this->user->name  . " " . 'commented on your post',
+            'post_id' => $this->post->id,
         ]);
     }
 

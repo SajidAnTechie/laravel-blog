@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Laravelista\Comments\Commenter;
 use App\Notifications\PostCreated;
 
+
 class User extends Authenticatable
 {
     use Notifiable, Commenter;
@@ -44,9 +45,9 @@ class User extends Authenticatable
         return $this->hasMany('App\Post');
     }
 
-    public function notifyusers($arr)
+    public function notifyusers($user, $post)
     {
 
-        $this->notify(new PostCreated($arr));
+        $this->notify(new PostCreated($user, $post));
     }
 }

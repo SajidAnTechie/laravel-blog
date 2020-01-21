@@ -25,5 +25,24 @@
         {{ Form::close() }} <br/>  <br/>  <br/> 
         @endif
         @endif 
+         
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-header">
+                    Comments
+                </div>
+                <div class="card-body">
+                <form action="{{route('storecomment',[$post->id,$post->user->id])}}" method="post">
+                    @csrf
+                        <textarea name="comment" cols="110" class="form-control" rows="10" placeholder="Write a comment"></textarea>    
+                </div>
+                        <div class="card-footer">
+                            <button type="submit" name="submit" class="btn btn-primary">Post</button>
+                        </div>
+                </form>
+            </div>
+        </div>
+
         @comments(['model' => $post])   
+        {{-- @comments(['user' => $post->user,])    --}}
 @endsection

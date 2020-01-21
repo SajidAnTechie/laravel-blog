@@ -11,6 +11,8 @@
 |
 */
 
+use Illuminate\Notifications\DatabaseNotification;
+
 Route::get('/', 'PagesController@index');
 Route::get('/about', 'PagesController@about');
 Route::get('/services', 'PagesController@services');
@@ -34,3 +36,26 @@ Auth::routes();
 Route::get('/Profile', 'ProfileController@get_profile');
 
 Route::get('/dashboard', 'DashboardController@index');
+
+//Notifications
+
+Route::get('markasread/{id}', function ($id) {
+
+    $notify = DatabaseNotification::all();
+
+    return $notify;
+
+    auth()->user()->unreadNotifications->where('id', $id)->markAsRead();
+
+    return back();
+})->name('marasred');
+
+Route::get('markasread', function () {
+
+    $notify = DatabaseNotification::where('notifiable_id', '!=', 2)->get();
+
+    return $notify;
+});
+
+//comments
+Route::post('/comments/{post}/{owener}', 'PostcommentController@store')->name('storecomment');

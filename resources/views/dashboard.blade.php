@@ -33,6 +33,17 @@
                 </table>
             </div>
         </div>
+
+        <div class="col-sm-4">
+            <div class="card">
+                <div class="card-header">
+                    Notifications
+                </div>
+                <div class="card-body">
+
+                </div>
+            </div>
+        </div>
     </div>
 
 @endsection

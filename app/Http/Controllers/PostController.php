@@ -77,9 +77,9 @@ class PostController extends Controller
         $post->user_id = auth()->user()->id;
         $post->save();
 
-        $arr = ['title' => $post->title];
+        // $arr = ['title' => $post->title];
 
-        auth()->user()->notifyusers($arr);
+        // auth()->user()->notifyusers($arr);
 
         return redirect('/posts')->withSuccess('Post Created');
     }
