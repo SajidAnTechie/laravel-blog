@@ -58,7 +58,6 @@ class PostCreated extends Notification
      * @return array
      */
 
-
     public function toDatabase($notifiable)
     {
 
@@ -66,6 +65,7 @@ class PostCreated extends Notification
         return [
             'data' => $this->user->name . " " . 'commented on your post',
             'post_id' => $this->post->id,
+            'commenter' => $this->user,
         ];
     }
 
@@ -75,6 +75,8 @@ class PostCreated extends Notification
         return new BroadcastMessage([
             'data' => $this->user->name  . " " . 'commented on your post',
             'post_id' => $this->post->id,
+            'owner_id' => $notifiable->id,
+            'commenter' => $this->user->name,
         ]);
     }
 

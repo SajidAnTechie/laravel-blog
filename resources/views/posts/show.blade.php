@@ -35,11 +35,12 @@
                 <form action="{{route('storecomment',[$post->id,$post->user->id])}}" method="post">
                     @csrf
                         <textarea name="comment" cols="110" class="form-control" rows="10" placeholder="Write a comment"></textarea>    
-                </div>
+                
                         <div class="card-footer">
                             <button type="submit" name="submit" class="btn btn-primary">Post</button>
                         </div>
                 </form>
+            </div>
             </div>
         </div>
 
