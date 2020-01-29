@@ -12,16 +12,16 @@
             <!-- Left Side Of Navbar -->
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="/">@lang('home.home_menu')</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="/services">Services</a>
+                <a class="nav-link" href="/services">@lang('home.services_menu')</a>
                 </li>
                 <li class="nav-item">
-                        <a class="nav-link" href="/about">About</a>
+                        <a class="nav-link" href="/about">@lang('home.about_menu')</a>
                 </li>
                 <li class="nav-item">
-                <a class="nav-link" href="/posts">Blog</a>
+                <a class="nav-link" href="/posts">@lang('home.posts_menu')</a>
             </li>
             </ul>
             <!-- Right Side Of Navbar -->
@@ -29,11 +29,11 @@
                 <!-- Authentication Links -->
                 @guest
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a class="nav-link" href="{{ route('login') }}">@lang('home.login_menu')</a>
                     </li>
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link" href="{{ route('register') }}">@lang('home.rigister_menu')</a>
                         </li>
                     @endif
                 @else
@@ -96,6 +96,17 @@
                         </div>
                     </li>
                 @endguest
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    <span>lan</span>
+                    </a>
+                
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="/locale/en">En</a>
+                        <a class="dropdown-item" href="/locale/chi">Chi</a>
+                        <a class="dropdown-item" href="/locale/fr">Fr</a>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>

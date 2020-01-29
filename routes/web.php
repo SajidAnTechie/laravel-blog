@@ -11,7 +11,9 @@
 |
 */
 
+use Illuminate\Http\Request;
 use Illuminate\Notifications\DatabaseNotification;
+use Illuminate\Support\Facades\Session;
 
 Route::get('/', 'PagesController@index');
 Route::get('/about', 'PagesController@about');
@@ -59,3 +61,15 @@ Route::get('markasread', function () {
 
 //comments
 Route::post('/comments/{post}/{owener}', 'PostcommentController@store')->name('storecomment');
+
+//language
+
+Route::get('/locale/{locale}', function ($locale, Request $request) {
+
+    Session::put('locale', $locale);
+    // $request->session()->flush();
+    // $data =  $request->session()->all();
+    // return $data;
+
+    return back();
+});

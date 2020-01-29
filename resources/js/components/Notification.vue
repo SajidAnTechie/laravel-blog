@@ -37,7 +37,7 @@ export default {
     // console.log(this.unreadNotifications);
 
     Echo.private("App.User." + this.userid).notification(notification => {
-      console.log(notification);
+      // console.log(notification);
       let newUnreadNotifications = {
         data: {
           data: notification.data,
