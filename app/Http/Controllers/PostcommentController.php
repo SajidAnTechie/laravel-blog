@@ -7,6 +7,7 @@ use App\Post;
 use App\Postcomment;
 use App\User;
 use Illuminate\Http\Request;
+use Auth;
 
 class PostcommentController extends Controller
 {
